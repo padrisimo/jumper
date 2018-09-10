@@ -10,6 +10,7 @@ public class GameContoller : MonoBehaviour
     public float parallaxSpeed = 0.02f;
     public RawImage background;
     public RawImage platform;
+    public GameObject uiIdle;
 
     public enum GameState { Idle, Playing };
     public GameState gameState = GameState.Idle;
@@ -29,16 +30,22 @@ public class GameContoller : MonoBehaviour
         if (gameState == GameState.Idle && (Input.GetKeyDown("up") || Input.GetMouseButtonDown(0)))
         {
             gameState = GameState.Playing;
+            uiIdle.SetActive(false);
         }
 
         //Game Runing
         else if (gameState == GameState.Playing)
         {
-
-            float finalSpeed = parallaxSpeed * Time.deltaTime;
-            background.uvRect = new Rect(background.uvRect.x + finalSpeed, 0f, 1f, 1f);
-            platform.uvRect = new Rect(platform.uvRect.x + finalSpeed * 4, 0f, 1f, 1f);
+            Parallax();
         }
 
     }
+
+    void Parallax()
+    {
+        float finalSpeed = parallaxSpeed * Time.deltaTime;
+        background.uvRect = new Rect(background.uvRect.x + finalSpeed, 0f, 1f, 1f);
+        platform.uvRect = new Rect(platform.uvRect.x + finalSpeed * 4, 0f, 1f, 1f);
+    }
+
 }
