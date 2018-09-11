@@ -15,6 +15,7 @@ public class GameContoller : MonoBehaviour
     public enum GameState { Idle, Playing };
     public GameState gameState = GameState.Idle;
 
+    public GameObject player;
 
     // Use this for initialization
     void Start()
@@ -31,6 +32,7 @@ public class GameContoller : MonoBehaviour
         {
             gameState = GameState.Playing;
             uiIdle.SetActive(false);
+            player.SendMessage("UpdateState", "PlayerRun");
         }
 
         //Game Runing
