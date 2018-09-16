@@ -408,6 +408,7 @@ MonoBehaviour:
   uiIdle: {fileID: 93345180}
   gameState: 0
   player: {fileID: 1687598486}
+  enemyGenerator: {fileID: 2029657270}
 --- !u!1 &721878271
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1026361224544770, guid: 386118e2139ca41f49bf354096707b8b,
     type: 2}
+  generatorTimer: 1.75
 --- !u!4 &2029657272
 Transform:
   m_ObjectHideFlags: 0
